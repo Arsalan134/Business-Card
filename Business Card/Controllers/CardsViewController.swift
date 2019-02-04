@@ -25,7 +25,6 @@ var cards: [Card] = []
 class CardsViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-
     @IBOutlet weak var suggestionsTableView: UITableView!
 
     let searchController = UISearchController(searchResultsController: nil)
@@ -44,20 +43,20 @@ class CardsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-//        navigationController?.setNavigationBarHidden(true, animated: false)
+        //        navigationController?.setNavigationBarHidden(true, animated: false)
         downloadCards {
             self.filteredCards = cards
             self.collectionView.reloadData()
         }
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-//        navigationController?.setNavigationBarHidden(false, animated: false)
-        suggestionsTableView.isHidden = true
-        searchController.searchBar.text = ""
-    }
+    //
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //        super.viewWillDisappear(animated)
+    //
+    ////        navigationController?.setNavigationBarHidden(false, animated: false)
+    //        suggestionsTableView.isHidden = true
+    //        searchController.searchBar.text = ""
+    //    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CardDetailViewController {
@@ -73,24 +72,23 @@ class CardsViewController: UIViewController {
         definesPresentationContext = true
 
         searchController.obscuresBackgroundDuringPresentation = false
-//        searchController.dimsBackgroundDuringPresentation = true
-//        searchController.hidesNavigationBarDuringPresentation = false
+        //        searchController.dimsBackgroundDuringPresentation = true
+        //        searchController.hidesNavigationBarDuringPresentation = false
 
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.autocapitalizationType = .words
         searchController.searchBar.tintColor = pink1
-        searchController.searchBar.barTintColor = .white
         //        searchController.searchBar.setValue("İmtina", forKey: "_cancelButtonText")
-        //        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.enablesReturnKeyAutomatically = true
         searchController.searchBar.returnKeyType = .done
-//        searchController.searchBar.showsBookmarkButton = true
-//        searchController.searchBar.showsSearchResultsButton = true
+        //        searchController.searchBar.showsBookmarkButton = true
+        //        searchController.searchBar.showsSearchResultsButton = true
         searchController.searchBar.showsScopeBar = true
         searchController.searchBar.scopeButtonTitles = ["All", "Some", "None"]
 
-//        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "_searchField") as? UITextField
-//        textFieldInsideSearchBar?.backgroundColor = UIColor(red: 0.01, green: 0.01, blue: 0.01, alpha: 0.09)
+        //        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "_searchField") as? UITextField
+        //        textFieldInsideSearchBar?.backgroundColor = UIColor(red: 0.01, green: 0.01, blue: 0.01, alpha: 0.09)
 
         navigationItem.searchController = searchController
 
@@ -102,20 +100,43 @@ class CardsViewController: UIViewController {
 extension CardsViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
 
     func updateSearchResults(for searchController: UISearchController) {
-        if searchController.searchBar.text?.count ?? 0 > 0 {
+//        if searchController.searchBar.text?.count ?? 0 > 0 {
             suggestionsTableView.isHidden = false
-            filteredCards = cards.filter { (card) -> Bool in
-                return card.title?.contains(searchController.searchBar.text ?? "") ?? false
+
+            let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
+
+            if scope == "All" {
+//                filteredCards = cards.filter("name CONTAINS[c] '\(searchController.searchBar.text)'")
+                filteredCards = cards.filter { (card) -> Bool in
+                    return card.title?.contains(searchController.searchBar.text ?? "") ?? false
+                }
+            } else if searchController.searchBar.text?.count == 0 {
+//                filteredCards = cards.filter("type.name = '\(scope)'")
+//                filteredCards = cards.filter("type.name = '\(scope)'")
+                filteredCards = cards.filter { (card) -> Bool in
+                    return card.title?.contains(searchController.searchBar.text ?? "") ?? false
+                }
+            } else {
+//                filteredCards = cards.filter("name CONTAINS[c] '\(searchText)' AND type.name = '\(scope)'")
+//                filteredCards = cards.filter("name CONTAINS[c] '\(searchText)' AND type.name = '\(scope)'")
+                filteredCards = cards.filter { (card) -> Bool in
+                    return card.title?.contains(searchController.searchBar.text ?? "") ?? false
+                }
             }
-        } else {
-            suggestionsTableView.isHidden = true
-        }
+
+
+//            filteredCards = cards.filter { (card) -> Bool in
+//                return card.title?.contains(searchController.searchBar.text ?? "") ?? false
+//            }
+//        } else {
+//            suggestionsTableView.isHidden = true
+//        }
         suggestionsTableView.reloadData()
     }
 
-//    func willDismissSearchController(_ searchController: UISearchController) {
-//        navigationController?.setNavigationBarHidden(true, animated: true)
-//    }
+    //    func willDismissSearchController(_ searchController: UISearchController) {
+    //        navigationController?.setNavigationBarHidden(true, animated: true)
+    //    }
 
 }
 
@@ -137,7 +158,7 @@ extension CardsViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedCard = cards[indexPath.row]
-//        navigationController?.setNavigationBarHidden(false, animated: true)
+        //        navigationController?.setNavigationBarHidden(false, animated: true)
         performSegue(withIdentifier: "showDetail", sender: nil)
     }
 

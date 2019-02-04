@@ -21,12 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        if let font = UIFont(name: "Montserrat", size: 20) {
+            let attributes = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: pink1]
+            UINavigationBar.appearance().titleTextAttributes = attributes
+            UINavigationBar.appearance().tintColor = .red
+        }
+
+        UINavigationBar.appearance().tintColor = pink1
+
         FirebaseApp.configure()
 
         db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 

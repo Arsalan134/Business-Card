@@ -31,11 +31,6 @@ class CardDetailViewController: UIViewController {
         titleLabel.text = card?.title
         title = card?.title
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
     
     @IBAction func delete() {
         db.collection("users").document((Auth.auth().currentUser?.uid)!).collection("cards").document((card?.cardID)!).delete() { err in
@@ -52,7 +47,6 @@ class CardDetailViewController: UIViewController {
                     if error != nil {
                         // Uh-oh, an error occurred!
                     } else {
-
                         print("Image successfully removed!")
                     }
                 }
