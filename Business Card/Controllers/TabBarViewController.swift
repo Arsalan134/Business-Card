@@ -46,7 +46,8 @@ extension TabBarViewController: ImageScannerControllerDelegate {
             textField.autocapitalizationType = .words
         }
 
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0]
 
             let imageRef = Storage.storage().reference().child("images").child("\(Auth.auth().currentUser?.uid ?? "no user id")_\(Date().timeIntervalSince1970)")
@@ -57,7 +58,9 @@ extension TabBarViewController: ImageScannerControllerDelegate {
                 //                guard let metadata = metadata else {return}
                 //                let size = metadata.size
                 //                print("size: \(size)")
-                
+
+                NotificationCenter.default.post(name: .newCardWasAdded, object: nil)
+
                 db.collection("users").document((Auth.auth().currentUser?.uid)!).collection("cards").addDocument(data: [
                     "title": textField!.text as Any,
                     "imageURL": imageRef.fullPath

@@ -45,7 +45,7 @@ func fetchUserProfile(_ completion: @escaping (_ user: User?) -> Void) {
 func downloadCards(_ completion: @escaping() -> Void) {
     let docRef = db.collection("users").document((Auth.auth().currentUser?.uid)!).collection("cards")
 
-    docRef.getDocuments(source: .cache) { (snapshot, error) in
+    docRef.getDocuments { (snapshot, error) in
         if let error = error {
             print("Error getting documents: \(error)")
         } else {

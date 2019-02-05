@@ -22,6 +22,7 @@ target 'Business Card' do
     pod 'FBSDKLoginKit'
     pod 'FBSDKMessengerShareKit'
 
+    pod 'ParallaxHeader'
     pod 'IQKeyboardManager'
     pod 'CodableFirebase'
     pod 'Nuke'

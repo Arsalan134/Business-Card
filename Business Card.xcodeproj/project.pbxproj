@@ -25,12 +25,14 @@
 		9930963621E41049004F0799 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9930963521E41049004F0799 /* Functions.swift */; };
 		9930963921E410BC004F0799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9930963821E410BC004F0799 /* User.swift */; };
 		9946EF9F21EA1B8100A24441 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946EF9E21EA1B8100A24441 /* CardDetailViewController.swift */; };
+		994C0050220980B900865536 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994C004F220980B900865536 /* DetailCell.swift */; };
 		995A59AB2206DE8200D4C295 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995A59AA2206DE8200D4C295 /* CategoryCell.swift */; };
 		995A59AD2206DF6700D4C295 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995A59AC2206DF6700D4C295 /* CategoriesController.swift */; };
 		995A59AF220712B500D4C295 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995A59AE220712B500D4C295 /* CustomFlowLayout.swift */; };
 		99657C5821B51FED007454BA /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99657C5721B51FED007454BA /* OnboardingPageViewController.swift */; };
 		99657C5A21B5330C007454BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99657C5921B5330C007454BA /* Constants.swift */; };
 		99657C5C21B53B64007454BA /* SearchCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99657C5B21B53B64007454BA /* SearchCardCell.swift */; };
+		997A940A2208DA8B004024AC /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997A94092208DA8B004024AC /* Notifications.swift */; };
 		99A600BD21E69DFF00321CA7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A600BC21E69DFF00321CA7 /* Extension.swift */; };
 		99C6BB7421B031FD00C0E40A /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99C6BB6121B031FC00C0E40A /* Montserrat-BlackItalic.ttf */; };
 		99C6BB7521B031FD00C0E40A /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99C6BB6221B031FC00C0E40A /* Montserrat-Medium.ttf */; };
@@ -84,12 +86,14 @@
 		9930963521E41049004F0799 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		9930963821E410BC004F0799 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9946EF9E21EA1B8100A24441 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		994C004F220980B900865536 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		995A59AA2206DE8200D4C295 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		995A59AC2206DF6700D4C295 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		995A59AE220712B500D4C295 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 		99657C5721B51FED007454BA /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		99657C5921B5330C007454BA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99657C5B21B53B64007454BA /* SearchCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardCell.swift; sourceTree = "<group>"; };
+		997A94092208DA8B004024AC /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		99A600BC21E69DFF00321CA7 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		99C6BB6121B031FC00C0E40A /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		99C6BB6221B031FC00C0E40A /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 		991A2E5721B3090200505082 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				994C004F220980B900865536 /* DetailCell.swift */,
 				995A59AA2206DE8200D4C295 /* CategoryCell.swift */,
 				99657C5B21B53B64007454BA /* SearchCardCell.swift */,
 				99299C1621B2BE28007A2017 /* MenuTableViewCell.swift */,
@@ -191,6 +196,7 @@
 				99299C0F21B2A26D007A2017 /* SSASideMenu.swift */,
 				99C6BB8B21B0369400C0E40A /* DesignableX */,
 				9930963521E41049004F0799 /* Functions.swift */,
+				997A94092208DA8B004024AC /* Notifications.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
+				"${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/WeScan/WeScan.framework",
@@ -435,6 +442,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WeScan.framework",
@@ -463,6 +471,7 @@
 				9930963421E40C50004F0799 /* FirstViewController.swift in Sources */,
 				99186DC221E2CA01001FB026 /* LoginViewController.swift in Sources */,
 				995A59AF220712B500D4C295 /* CustomFlowLayout.swift in Sources */,
+				997A940A2208DA8B004024AC /* Notifications.swift in Sources */,
 				99C6BB9F21B0369F00C0E40A /* UIVisualEffectViewX.swift in Sources */,
 				99C6BB9821B0369F00C0E40A /* UIImageViewX.swift in Sources */,
 				99C6BB9A21B0369F00C0E40A /* UIViewControllerX.swift in Sources */,
@@ -477,6 +486,7 @@
 				991A2E5021B2D5C400505082 /* TabBarViewController.swift in Sources */,
 				99657C5A21B5330C007454BA /* Constants.swift in Sources */,
 				992BC3C521B02E73007C43F3 /* AppDelegate.swift in Sources */,
+				994C0050220980B900865536 /* DetailCell.swift in Sources */,
 				99A600BD21E69DFF00321CA7 /* Extension.swift in Sources */,
 				99657C5821B51FED007454BA /* OnboardingPageViewController.swift in Sources */,
 				99299C1721B2BE28007A2017 /* MenuTableViewCell.swift in Sources */,

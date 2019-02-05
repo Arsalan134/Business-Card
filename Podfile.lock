@@ -130,6 +130,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Nuke (7.5.2)
+  - ParallaxHeader (2.0.0)
   - Protobuf (3.6.1)
   - SDWebImage (4.4.5):
     - SDWebImage/Core (= 4.4.5)
@@ -148,6 +149,7 @@ DEPENDENCIES:
   - FirebaseUI/Storage
   - IQKeyboardManager
   - Nuke
+  - ParallaxHeader
   - WeScan
 
 SPEC REPOS:
@@ -177,6 +179,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Nuke
+    - ParallaxHeader
     - Protobuf
     - SDWebImage
     - WeScan
@@ -207,10 +210,11 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Nuke: 0350d346a688426e8f2331253ef28dc2fc4f6178
+  ParallaxHeader: fb6ee97915626454f3c029a97b424f79a777c642
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
   WeScan: a049a4a2a0eb1c4560cf649ebd933d07b0d9ef4c
 
-PODFILE CHECKSUM: ba19925c309acd4b7d054dfc05dd0e0265a6b2d2
+PODFILE CHECKSUM: 64781e17097d8150d76d037ef29c95c1fb161e5e
 
 COCOAPODS: 1.6.0.beta.2

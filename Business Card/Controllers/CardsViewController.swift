@@ -17,6 +17,8 @@ struct Card: Decodable {
     var cardID: String?
     var imageURL: String?
     var title: String?
+    
+    var phone: String?
 }
 
 var cards: [Card] = []
@@ -36,8 +38,14 @@ class CardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .newCardWasAdded, object: nil)
+
         setupSearchBar()
         navigationController?.title = "Cards"
+    }
+
+    @objc func reload() {
+        collectionView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -73,18 +81,17 @@ class CardsViewController: UIViewController {
 
         searchController.obscuresBackgroundDuringPresentation = false
         //        searchController.dimsBackgroundDuringPresentation = true
-        //        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
 
         searchController.searchBar.delegate = self
+        searchController.searchBar.searchBarStyle = .prominent
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.autocapitalizationType = .words
         searchController.searchBar.tintColor = pink1
         //        searchController.searchBar.setValue("İmtina", forKey: "_cancelButtonText")
         searchController.searchBar.enablesReturnKeyAutomatically = true
         searchController.searchBar.returnKeyType = .done
-        //        searchController.searchBar.showsBookmarkButton = true
-        //        searchController.searchBar.showsSearchResultsButton = true
-        searchController.searchBar.showsScopeBar = true
+
         searchController.searchBar.scopeButtonTitles = ["All", "Some", "None"]
 
         //        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "_searchField") as? UITextField
@@ -100,43 +107,41 @@ class CardsViewController: UIViewController {
 extension CardsViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
 
     func updateSearchResults(for searchController: UISearchController) {
-//        if searchController.searchBar.text?.count ?? 0 > 0 {
+//        print("update")
+
+            
+
+        if searchController.searchBar.text?.count ?? 0 > 0 {
             suggestionsTableView.isHidden = false
 
             let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
 
             if scope == "All" {
-//                filteredCards = cards.filter("name CONTAINS[c] '\(searchController.searchBar.text)'")
+                //                filteredCards = cards.filter("name CONTAINS[c] '\(searchController.searchBar.text)'")
                 filteredCards = cards.filter { (card) -> Bool in
-                    return card.title?.contains(searchController.searchBar.text ?? "") ?? false
-                }
-            } else if searchController.searchBar.text?.count == 0 {
-//                filteredCards = cards.filter("type.name = '\(scope)'")
-//                filteredCards = cards.filter("type.name = '\(scope)'")
-                filteredCards = cards.filter { (card) -> Bool in
-                    return card.title?.contains(searchController.searchBar.text ?? "") ?? false
+                    return card.title?.localizedCaseInsensitiveContains(searchController.searchBar.text ?? "") ?? false
                 }
             } else {
-//                filteredCards = cards.filter("name CONTAINS[c] '\(searchText)' AND type.name = '\(scope)'")
-//                filteredCards = cards.filter("name CONTAINS[c] '\(searchText)' AND type.name = '\(scope)'")
+                //                filteredCards = cards.filter("name CONTAINS[c] '\(searchText)' AND type.name = '\(scope)'")
                 filteredCards = cards.filter { (card) -> Bool in
-                    return card.title?.contains(searchController.searchBar.text ?? "") ?? false
+                    return card.title?.localizedCaseInsensitiveContains(searchController.searchBar.text ?? "") ?? false
                 }
             }
-
-
-//            filteredCards = cards.filter { (card) -> Bool in
-//                return card.title?.contains(searchController.searchBar.text ?? "") ?? false
-//            }
-//        } else {
-//            suggestionsTableView.isHidden = true
-//        }
+        } else {
+            suggestionsTableView.isHidden = true
+        }
         suggestionsTableView.reloadData()
     }
 
-    //    func willDismissSearchController(_ searchController: UISearchController) {
-    //        navigationController?.setNavigationBarHidden(true, animated: true)
-    //    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        print("salsldkalsdk")
+    }
+
+
+
+    //        func willDismissSearchController(_ searchController: UISearchController) {
+    //            navigationController?.setNavigationBarHidden(true, animated: true)
+    //        }
 
 }
 
@@ -152,6 +157,8 @@ extension CardsViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
         cell.titleLabel.text = cards[indexPath.row].title
         cell.cardImageView.sd_setImage(with: Storage.storage().reference().child("\(cards[indexPath.row].imageURL ?? "")"))
+        cell.callButton.isEnabled = cards[indexPath.row].phone != nil
+        cell.card = cards[indexPath.row]
 
         return cell
     }
