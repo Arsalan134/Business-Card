@@ -41,30 +41,32 @@ class CardsViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .newCardWasAdded, object: nil)
 
         setupSearchBar()
+
+        let docRef = db.collection("users").document((Auth.auth().currentUser?.uid)!).collection("cards")
+
+        docRef.addSnapshotListener { (documentSnapshot, error) in
+            downloadCards {
+                self.filteredCards = cards
+                self.collectionView.reloadData()
+            }
+        }
+
+//        navigationController?.navigationBar.isTranslucent = false
         navigationController?.title = "Cards"
+//        navigationController?.navigationBar.tintColor = .yellow
+//        navigationController?.navigationBar.barTintColor = pink2
+
+//        if traitCollection.forceTouchCapability == .available {
+//            registerForPreviewing(with: self, sourceView: view)
+//        }
+
     }
 
     @objc func reload() {
         collectionView.reloadData()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        //        navigationController?.setNavigationBarHidden(true, animated: false)
-        downloadCards {
-            self.filteredCards = cards
-            self.collectionView.reloadData()
-        }
-    }
-    //
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //
-    ////        navigationController?.setNavigationBarHidden(false, animated: false)
-    //        suggestionsTableView.isHidden = true
-    //        searchController.searchBar.text = ""
-    //    }
+//    imageView.sd_setImage(with: Storage.storage().reference().child("\(car.imageURL ?? "")"))
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CardDetailViewController {
@@ -88,14 +90,15 @@ class CardsViewController: UIViewController {
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.autocapitalizationType = .words
         searchController.searchBar.tintColor = pink1
+        searchController.searchBar.barTintColor = .red
         //        searchController.searchBar.setValue("İmtina", forKey: "_cancelButtonText")
         searchController.searchBar.enablesReturnKeyAutomatically = true
         searchController.searchBar.returnKeyType = .done
 
         searchController.searchBar.scopeButtonTitles = ["All", "Some", "None"]
 
-        //        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "_searchField") as? UITextField
-        //        textFieldInsideSearchBar?.backgroundColor = UIColor(red: 0.01, green: 0.01, blue: 0.01, alpha: 0.09)
+//        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "_searchField") as? UITextField
+//        textFieldInsideSearchBar?.backgroundColor = UIColor(red: 0.01, green: 0.01, blue: 0.01, alpha: 0.09)
 
         navigationItem.searchController = searchController
 
@@ -108,9 +111,6 @@ extension CardsViewController: UISearchResultsUpdating, UISearchBarDelegate, UIS
 
     func updateSearchResults(for searchController: UISearchController) {
 //        print("update")
-
-            
-
         if searchController.searchBar.text?.count ?? 0 > 0 {
             suggestionsTableView.isHidden = false
 
@@ -137,11 +137,43 @@ extension CardsViewController: UISearchResultsUpdating, UISearchBarDelegate, UIS
 //        print("salsldkalsdk")
     }
 
-
-
     //        func willDismissSearchController(_ searchController: UISearchController) {
     //            navigationController?.setNavigationBarHidden(true, animated: true)
     //        }
+
+}
+
+extension CardsViewController: UIViewControllerPreviewingDelegate {
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+
+        // First, get the index path and view for the previewed cell.
+
+//        let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
+
+        guard let indexPath = collectionView.indexPathForItem(at: location),
+            let cell = collectionView.layoutAttributesForItem(at: indexPath)
+//            let cell = collectionView.cellForItem(at: indexPath) as? CardCollectionViewCell
+            else { return nil }
+
+//        print(cell.titleLabel.text!)
+        // Enable blurring of other UI elements, and a zoom in animation while peeking.
+        previewingContext.sourceRect = cell.frame
+
+        // Create and configure an instance of the color item view controller to show for the peek.
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: "a") as? CategoriesController
+            else { preconditionFailure("Expected a ColorItemViewController") }
+
+        // Pass over a reference to the ColorData object and the specific ColorItem being viewed.
+
+        return viewController
+    }
+
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        navigationController?.pushViewController(viewControllerToCommit, animated: true)
+    }
+
 
 }
 
@@ -163,14 +195,12 @@ extension CardsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         selectedCard = cards[indexPath.row]
-        //        navigationController?.setNavigationBarHidden(false, animated: true)
-        performSegue(withIdentifier: "showDetail", sender: nil)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width - 40, height: 250)
+        return CGSize(width: collectionView.frame.size.width - 20, height: 250)
     }
 
 

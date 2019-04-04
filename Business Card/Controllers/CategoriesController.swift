@@ -15,7 +15,37 @@ struct Category {
     let image: UIImage
 }
 
-class CategoriesController: UIViewController {
+class CategoriesController: UIViewController, UIViewControllerPreviewingDelegate {
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+
+        // First, get the index path and view for the previewed cell.
+
+        //        let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
+
+        guard let indexPath = collectionView.indexPathForItem(at: location),
+            let cell = collectionView.layoutAttributesForItem(at: indexPath)
+            //            let cell = collectionView.cellForItem(at: indexPath) as? CardCollectionViewCell
+            else { return nil }
+
+        //        print(cell.titleLabel.text!)
+        // Enable blurring of other UI elements, and a zoom in animation while peeking.
+        previewingContext.sourceRect = cell.frame
+
+        // Create and configure an instance of the color item view controller to show for the peek.
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: "a") as? CategoriesController
+            else { preconditionFailure("Expected a ColorItemViewController") }
+
+        // Pass over a reference to the ColorData object and the specific ColorItem being viewed.
+
+        return viewController
+    }
+
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        navigationController?.pushViewController(viewControllerToCommit, animated: true)
+    }
+
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -40,9 +70,17 @@ class CategoriesController: UIViewController {
         collectionView.setCollectionViewLayout(CustomFlowLayout(numberOfColumns: 2), animated: false)
         collectionView.layoutIfNeeded()
         collectionView.reloadData()
+
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: view)
+        }
     }
     
 
+    @IBAction func showMenu() {
+        print("salam")
+        performSelector(onMainThread: #selector(SSASideMenu.presentLeftMenuViewController), with: nil, waitUntilDone: true)
+    }
     /*
     // MARK: - Navigation
 

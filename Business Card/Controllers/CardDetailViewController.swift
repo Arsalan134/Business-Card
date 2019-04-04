@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseUI
 import FirebaseAuth
-import ParallaxHeader
 
 class CardDetailViewController: UIViewController {
 
@@ -28,11 +27,26 @@ class CardDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(card)
 
         //        titleLabel.adjustsFontSizeToFitWidth = true
         //        titleLabel.text = card?.title
         title = card?.title
-//        navigationItem.rightBarButtonItem = editButtonItem
+        //        navigationItem.rightBarButtonItem = editButtonItem
+
+        
+    }
+
+    override var previewActionItems: [UIPreviewActionItem] {
+        let editAction = UIPreviewAction(title: "Edit", style: .default) {
+            [weak self] (action, controller) in
+
+        }
+        let deleteAction = UIPreviewAction(title: "Delete", style: .destructive) {
+            [weak self] (action, controller) in
+
+        }
+        return [editAction, deleteAction]
     }
 
     private func deleteFromFirebase() {
@@ -43,10 +57,10 @@ class CardDetailViewController: UIViewController {
                 print("Document successfully removed!")
 
                 guard let url = self.card?.imageURL else {return}
-                let desertRef = Storage.storage().reference().child(url)
+                let imageReference = Storage.storage().reference().child(url)
 
                 // Delete the file
-                desertRef.delete { error in
+                imageReference.delete { error in
                     if error != nil {
                         // Uh-oh, an error occurred!
                     } else {
@@ -81,6 +95,12 @@ class CardDetailViewController: UIViewController {
      }
      */
 
+
+    //    private(set) lazy var orderedViewControllers: [UIViewController] = {
+    //        let v = UIViewController()
+    //        return [v,v]
+    //    }()
+
 }
 
 
@@ -106,9 +126,10 @@ extension CardDetailViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = testTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DetailCell
         cell.propertyName.text = properties[indexPath.section][indexPath.row]
 
+        cell.card = card
+
         switch indexPath.section {
         case 0:
-
             switch indexPath.row {
             case 0: cell.propertyValue.text = card?.title
             case 1:
@@ -132,13 +153,36 @@ extension CardDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //        let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        //        pageController.delegate = self
+        //        pageController.dataSource = self
+
+        //        pageController.view.translatesAutoresizingMaskIntoConstraints = false
+        //        pageController.view.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        //        pageController.view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15).isActive = true
+        //        pageController.view.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        //        pageController.view.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+
+        //        pageController.view.backgroundColor = .red
+
+        //        if let firstVC = orderedViewControllers.first
+        //        {
+        //            firstVC.view.backgroundColor = .yellow
+        //            pageController.setViewControllers([firstVC], direction: .forward, animated: true)
+        //        }
+
+        //        pageController.setViewControllers(orderedViewControllers, direction: .forward, animated: true)
         let imageView = UIImageView()
+
+        //        pageController.view.addSubview(imageView)
 
         if let url = URL(string: card?.imageURL ?? "") {
             imageView.sd_setImage(with: url)
         }
 
         imageView.backgroundColor = .red
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
 
         return section == 0 ? imageView : nil
     }
@@ -149,3 +193,44 @@ extension CardDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 }
+
+//extension CardDetailViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+//
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+//        let pageIndexFeatured = returnPageIndex(currentIndex: 0, numberOfPages: orderedViewControllers.count, isForward: true)
+//        let v = orderedViewControllers[pageIndexFeatured]
+//        v.view.backgroundColor = .red
+//        return v
+//    }
+//
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+//        let pageIndexFeatured = returnPageIndex(currentIndex: 0, numberOfPages: orderedViewControllers.count, isForward: false)
+//        return orderedViewControllers[pageIndexFeatured]
+//    }
+//
+//
+//    func returnPageIndex(currentIndex: Int, numberOfPages: Int,  isForward: Bool) -> Int{
+//        var currentPageIndex = currentIndex
+//
+//        //    print("currentIndex", currentIndex)
+//        //    print("numberOfPages", numberOfPages)
+//        //    print("isForward", isForward)
+//
+//        if isForward {
+//            currentPageIndex += 1
+//
+//            if currentPageIndex == numberOfPages {
+//                currentPageIndex = 0
+//            }
+//        } else {
+//            currentPageIndex -= 1
+//
+//            if currentPageIndex == -1 {
+//                currentPageIndex = numberOfPages - 1
+//            }
+//        }
+//
+//        print("NewIndex", currentPageIndex)
+//        return currentPageIndex
+//    }
+//}

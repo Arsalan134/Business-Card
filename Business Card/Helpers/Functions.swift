@@ -22,7 +22,7 @@ func fetchUserProfile(_ completion: @escaping (_ user: User?) -> Void) {
             print(result ?? 0)
             // Handle vars
             if let result = result as? [String : Any],
-                let fbId: String = result["id"] as? String,
+//                let fbId: String = result["id"] as? String,
                 let name: String = result["first_name"] as? String,
                 let lastname: String = result["last_name"] as? String,
                 // Add this lines for get image
@@ -45,18 +45,36 @@ func fetchUserProfile(_ completion: @escaping (_ user: User?) -> Void) {
 func downloadCards(_ completion: @escaping() -> Void) {
     let docRef = db.collection("users").document((Auth.auth().currentUser?.uid)!).collection("cards")
 
-    docRef.getDocuments { (snapshot, error) in
+    docRef.getDocuments(source: .cache) { (snapshot, error) in
         if let error = error {
             print("Error getting documents: \(error)")
         } else {
             cards.removeAll()
             for document in snapshot!.documents {
-//                print("\(document.documentID) => \(document.data())")
                 var card = try! FirestoreDecoder().decode(Card.self, from: document.data())
                 card.cardID = document.documentID
                 cards.append(card)
             }
-            completion()
+
+            if cards.isEmpty {
+                docRef.getDocuments(source: .default) { (snapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error)")
+                    } else {
+                        cards.removeAll()
+                        for document in snapshot!.documents {
+                            var card = try! FirestoreDecoder().decode(Card.self, from: document.data())
+                            card.cardID = document.documentID
+                            cards.append(card)
+                        }
+                        completion()
+                    }
+                }
+            } else {
+                completion()
+            }
         }
     }
+
+
 }

@@ -46,14 +46,22 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func logOut() {
-        do {
-            let v = storyboard?.instantiateViewController(withIdentifier: "login") as! LoginViewController
-            present(v, animated: true)
 
-            try Auth.auth().signOut()
-            FBSDKLoginManager().logOut()
-            print("Log out")
-        } catch {}
+        let alertConrtoller = UIAlertController(title: "Salam", message: "necesen?", preferredStyle: .actionSheet)
+        alertConrtoller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertConrtoller.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { (action) in
+            do {
+                let v = self.storyboard?.instantiateViewController(withIdentifier: "login") as! LoginViewController
+                self.present(v, animated: true)
+
+                try Auth.auth().signOut()
+                FBSDKLoginManager().logOut()
+                print("Log out")
+            } catch {}
+        }))
+
+        present(alertConrtoller, animated: true)
+
     }
 
     /*

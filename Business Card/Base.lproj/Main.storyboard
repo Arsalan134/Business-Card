@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="69Q-nr-myU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="69Q-nr-myU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -216,7 +216,7 @@
         <!--Home-->
         <scene sceneID="awf-KM-IWa">
             <objects>
-                <viewController id="JQA-lh-bj6" customClass="CategoriesController" customModule="Business_Card" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="a" id="JQA-lh-bj6" customClass="CategoriesController" customModule="Business_Card" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SrW-vt-Zxc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -265,10 +265,14 @@
                                     <outlet property="delegate" destination="JQA-lh-bj6" id="xhe-0E-kmG"/>
                                 </connections>
                             </collectionView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menuIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5qp-DK-Oyl">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTe-Y9-ArO">
                                 <rect key="frame" x="16" y="50" width="22" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" image="menuIcon"/>
+                                <connections>
+                                    <action selector="showMenu" destination="JQA-lh-bj6" eventType="touchUpInside" id="Tdv-SO-hon"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="uOg-xT-bq9"/>
@@ -295,46 +299,59 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fSV-Ha-Zaz">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="10" id="dlc-1M-eTn">
-                                    <size key="itemSize" width="326" height="255"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="dlc-1M-eTn">
+                                    <size key="itemSize" width="360" height="284"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="20" maxX="0.0" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="k6L-cf-efB" customClass="CardCollectionViewCell" customModule="Business_Card" customModuleProvider="target">
-                                        <rect key="frame" x="24.5" y="20" width="326" height="255"/>
+                                        <rect key="frame" x="7.5" y="20" width="360" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="255"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="360" height="284"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marble Co." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPC-yM-rgO">
-                                                    <rect key="frame" x="20" y="204" width="204" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="19"/>
-                                                    <color key="textColor" red="0.2579588592" green="0.2630913258" blue="0.41646343470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sTH-6h-1xC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="183"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lms-B7-fQR">
-                                                    <rect key="frame" x="266" y="195" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="callIcon"/>
-                                                    <connections>
-                                                        <action selector="call" destination="k6L-cf-efB" eventType="touchUpInside" id="MP6-xn-wh6"/>
-                                                    </connections>
-                                                </button>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITG-BT-c5m">
+                                                    <rect key="frame" x="18" y="0.0" width="324" height="269"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sTH-6h-1xC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="324" height="194"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marble Co." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPC-yM-rgO">
+                                                            <rect key="frame" x="8" y="221" width="230" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="19"/>
+                                                            <color key="textColor" red="0.2579588592" green="0.2630913258" blue="0.41646343470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lms-B7-fQR">
+                                                            <rect key="frame" x="274" y="214" width="41" height="38"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" image="callIcon"/>
+                                                            <connections>
+                                                                <action selector="call" destination="k6L-cf-efB" eventType="touchUpInside" id="MP6-xn-wh6"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="callButton" destination="lms-B7-fQR" id="GSI-2l-pbA"/>
                                             <outlet property="cardImageView" destination="sTH-6h-1xC" id="s2q-tT-3P3"/>
+                                            <outlet property="containerView" destination="ITG-BT-c5m" id="PdL-6R-GfZ"/>
                                             <outlet property="titleLabel" destination="RPC-yM-rgO" id="Hm4-jr-RQ7"/>
+                                            <segue destination="UyL-vF-wgK" kind="show" id="eJd-VP-Huu">
+                                                <segue key="commit" inheritsFrom="parent" id="aYJ-uW-bNj"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Nts-XX-RW1"/>
+                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -379,16 +396,16 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wiA-dQ-bVr" firstAttribute="top" secondItem="3zj-W4-oMR" secondAttribute="top" id="4nN-hL-lNQ"/>
-                            <constraint firstItem="fSV-Ha-Zaz" firstAttribute="leading" secondItem="3zj-W4-oMR" secondAttribute="leading" id="CQp-KR-KKw"/>
-                            <constraint firstItem="fSV-Ha-Zaz" firstAttribute="top" secondItem="3zj-W4-oMR" secondAttribute="top" id="DzD-uR-bFm"/>
+                            <constraint firstItem="fSV-Ha-Zaz" firstAttribute="trailing" secondItem="3zj-W4-oMR" secondAttribute="trailing" id="9Xk-L1-M0r"/>
                             <constraint firstItem="wiA-dQ-bVr" firstAttribute="bottom" secondItem="3zj-W4-oMR" secondAttribute="bottom" id="Eyv-6u-1uh"/>
-                            <constraint firstItem="fSV-Ha-Zaz" firstAttribute="bottom" secondItem="3zj-W4-oMR" secondAttribute="bottom" id="F7r-wS-hKy"/>
-                            <constraint firstItem="fSV-Ha-Zaz" firstAttribute="trailing" secondItem="3zj-W4-oMR" secondAttribute="trailing" id="Lq0-Dh-VP0"/>
+                            <constraint firstItem="fSV-Ha-Zaz" firstAttribute="leading" secondItem="3zj-W4-oMR" secondAttribute="leading" id="GVc-bi-3F0"/>
+                            <constraint firstItem="3zj-W4-oMR" firstAttribute="bottom" secondItem="fSV-Ha-Zaz" secondAttribute="bottom" id="R9x-BF-7Kr"/>
                             <constraint firstItem="wiA-dQ-bVr" firstAttribute="trailing" secondItem="3zj-W4-oMR" secondAttribute="trailing" id="Vz5-Jc-698"/>
                             <constraint firstItem="wiA-dQ-bVr" firstAttribute="leading" secondItem="3zj-W4-oMR" secondAttribute="leading" id="k2n-ap-U4H"/>
+                            <constraint firstItem="fSV-Ha-Zaz" firstAttribute="top" secondItem="3zj-W4-oMR" secondAttribute="top" id="xgW-bE-lfU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3zj-W4-oMR"/>
                         <variation key="default">
@@ -433,6 +450,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GZD-YN-K9A" id="Vev-Di-Ek4"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgM-x5-ZCI">
                                                     <rect key="frame" x="15" y="20" width="129" height="42"/>
@@ -642,8 +662,11 @@
         <image name="Booking-1" width="20" height="22"/>
         <image name="background" width="750" height="1624"/>
         <image name="callIcon" width="512" height="512"/>
-        <image name="camera" width="37.5" height="37.5"/>
-        <image name="card" width="75" height="75"/>
-        <image name="menuIcon" width="48" height="32"/>
+        <image name="camera" width="25" height="25"/>
+        <image name="card" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="menuIcon" width="24" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eJd-VP-Huu"/>
+    </inferredMetricsTieBreakers>
 </document>

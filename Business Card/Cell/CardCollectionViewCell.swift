@@ -15,7 +15,14 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var callButton: UIButton!
 
+    @IBOutlet weak var containerView: UIView!
+
     var card: Card?
+
+    override func awakeFromNib() {
+        containerView.clipsToBounds = true
+        containerView.layer.cornerRadius = 10
+    }
 
     @IBAction func call() {
         if let number = card?.phone {

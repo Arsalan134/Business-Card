@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -162,16 +162,16 @@
 		99186DC021E2C367001FB026 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				995A59AC2206DF6700D4C295 /* CategoriesController.swift */,
+				991A2E5121B2E48E00505082 /* CameraViewController.swift */,
 				9946EF9E21EA1B8100A24441 /* CardDetailViewController.swift */,
+				99299C1221B2A589007A2017 /* CardsViewController.swift */,
+				995A59AC2206DF6700D4C295 /* CategoriesController.swift */,
 				9930963321E40C50004F0799 /* FirstViewController.swift */,
 				99186DC121E2CA01001FB026 /* LoginViewController.swift */,
-				992BC3C621B02E73007C43F3 /* ViewController.swift */,
-				991A2E5121B2E48E00505082 /* CameraViewController.swift */,
-				99299C1221B2A589007A2017 /* CardsViewController.swift */,
 				99299C1421B2A5E8007A2017 /* MenuViewController.swift */,
-				991A2E4F21B2D5C400505082 /* TabBarViewController.swift */,
 				99657C5721B51FED007454BA /* OnboardingPageViewController.swift */,
+				991A2E4F21B2D5C400505082 /* TabBarViewController.swift */,
+				992BC3C621B02E73007C43F3 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,11 +179,11 @@
 		991A2E5721B3090200505082 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				994C004F220980B900865536 /* DetailCell.swift */,
-				995A59AA2206DE8200D4C295 /* CategoryCell.swift */,
-				99657C5B21B53B64007454BA /* SearchCardCell.swift */,
-				99299C1621B2BE28007A2017 /* MenuTableViewCell.swift */,
 				991A2E5521B3072700505082 /* CardCollectionViewCell.swift */,
+				995A59AA2206DE8200D4C295 /* CategoryCell.swift */,
+				994C004F220980B900865536 /* DetailCell.swift */,
+				99299C1621B2BE28007A2017 /* MenuTableViewCell.swift */,
+				99657C5B21B53B64007454BA /* SearchCardCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -191,12 +191,12 @@
 		99299C1121B2A275007A2017 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				99A600BC21E69DFF00321CA7 /* Extension.swift */,
 				99657C5921B5330C007454BA /* Constants.swift */,
-				99299C0F21B2A26D007A2017 /* SSASideMenu.swift */,
-				99C6BB8B21B0369400C0E40A /* DesignableX */,
+				99A600BC21E69DFF00321CA7 /* Extension.swift */,
 				9930963521E41049004F0799 /* Functions.swift */,
 				997A94092208DA8B004024AC /* Notifications.swift */,
+				99299C0F21B2A26D007A2017 /* SSASideMenu.swift */,
+				99C6BB8B21B0369400C0E40A /* DesignableX */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -222,11 +222,10 @@
 		992BC3C321B02E73007C43F3 /* Business Card */ = {
 			isa = PBXGroup;
 			children = (
-				995A59AE220712B500D4C295 /* CustomFlowLayout.swift */,
-				9930963721E410B2004F0799 /* Model */,
 				99F2038F21E3B90B000B6B4E /* GoogleService-Info.plist */,
 				992BC3D021B02E75007C43F3 /* Info.plist */,
 				992BC3C421B02E73007C43F3 /* AppDelegate.swift */,
+				995A59AE220712B500D4C295 /* CustomFlowLayout.swift */,
 				992BC3CB21B02E75007C43F3 /* Assets.xcassets */,
 				991A2E5721B3090200505082 /* Cell */,
 				99186DC021E2C367001FB026 /* Controllers */,
@@ -234,6 +233,7 @@
 				99299C1121B2A275007A2017 /* Helpers */,
 				992BC3CD21B02E75007C43F3 /* LaunchScreen.storyboard */,
 				992BC3C821B02E73007C43F3 /* Main.storyboard */,
+				9930963721E410B2004F0799 /* Model */,
 			);
 			path = "Business Card";
 			sourceTree = "<group>";
@@ -409,47 +409,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Business Card/Pods-Business Card-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKMessengerShareKit/FBSDKMessengerShareKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
-				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
-				"${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/WeScan/WeScan.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Business Card/Pods-Business Card-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKMessengerShareKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParallaxHeader.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WeScan.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Business Card/Pods-Business Card-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -642,17 +607,20 @@
 			baseConfigurationReference = B5409A52452FCEB7E086EA6C /* Pods-Business Card.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = time;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G7CN72P9F4;
 				INFOPLIST_FILE = "Business Card/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arsalan.BusinessCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -662,17 +630,19 @@
 			baseConfigurationReference = C3C61F0954DDF7FCF90B7F96 /* Pods-Business Card.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = time;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G7CN72P9F4;
 				INFOPLIST_FILE = "Business Card/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arsalan.BusinessCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
