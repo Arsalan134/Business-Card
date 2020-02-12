@@ -10,6 +10,8 @@ import Foundation
 import FBSDKLoginKit
 import FirebaseAuth
 import CodableFirebase
+import FirebaseStorage
+import FoldingCell
 
 func fetchUserProfile(_ completion: @escaping (_ user: User?) -> Void) {
     let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, email, name, first_name, last_name, picture.type(large)"])
@@ -42,8 +44,31 @@ func fetchUserProfile(_ completion: @escaping (_ user: User?) -> Void) {
     }
 }
 
+func deleteCard(card: Card, _ completion: (() -> Void)? = nil) {
+    db.collection("users").document((Auth.auth().currentUser?.uid)!).collection("cards").document((card.cardID)!).delete() { error in
+        if let error = error {
+            print("Error removing document: \(error)")
+        } else {
+            print("Document successfully removed!")
+
+            guard let url = card.imageURL else {return}
+            let imageReference = Storage.storage().reference().child(url)
+
+            // Delete the file
+            imageReference.delete { error in
+                if error != nil {
+                    // Uh-oh, an error occurred!
+                } else {
+                    print("Image successfully removed!")
+                }
+            }
+        }
+        completion?()
+    }
+}
+
 func downloadCards(_ completion: @escaping() -> Void) {
-    let docRef = db.collection("users").document((Auth.auth().currentUser?.uid)!).collection("cards")
+    let docRef = db.collection("users").document((Auth.auth().currentUser?.uid)!).collection("cards").order(by: "timestamp", descending: true)
 
     docRef.getDocuments(source: .cache) { (snapshot, error) in
         if let error = error {

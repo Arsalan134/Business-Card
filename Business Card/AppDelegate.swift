@@ -15,7 +15,7 @@ import FirebaseStorage
 var db: Firestore!
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 

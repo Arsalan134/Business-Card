@@ -9,30 +9,25 @@
 /* Begin PBXBuildFile section */
 		291C5528696FE01352C15F95 /* Pods_Business_Card.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E1430FC1507F3655722378 /* Pods_Business_Card.framework */; };
 		99186DC221E2CA01001FB026 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99186DC121E2CA01001FB026 /* LoginViewController.swift */; };
-		991A2E5021B2D5C400505082 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A2E4F21B2D5C400505082 /* TabBarViewController.swift */; };
-		991A2E5221B2E48E00505082 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A2E5121B2E48E00505082 /* CameraViewController.swift */; };
-		991A2E5621B3072700505082 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A2E5521B3072700505082 /* CardCollectionViewCell.swift */; };
 		99299C1021B2A26D007A2017 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99299C0F21B2A26D007A2017 /* SSASideMenu.swift */; };
 		99299C1321B2A589007A2017 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99299C1221B2A589007A2017 /* CardsViewController.swift */; };
 		99299C1521B2A5E8007A2017 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99299C1421B2A5E8007A2017 /* MenuViewController.swift */; };
 		99299C1721B2BE28007A2017 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99299C1621B2BE28007A2017 /* MenuTableViewCell.swift */; };
 		992BC3C521B02E73007C43F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BC3C421B02E73007C43F3 /* AppDelegate.swift */; };
-		992BC3C721B02E73007C43F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BC3C621B02E73007C43F3 /* ViewController.swift */; };
 		992BC3CA21B02E73007C43F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 992BC3C821B02E73007C43F3 /* Main.storyboard */; };
 		992BC3CC21B02E75007C43F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 992BC3CB21B02E75007C43F3 /* Assets.xcassets */; };
 		992BC3CF21B02E75007C43F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 992BC3CD21B02E75007C43F3 /* LaunchScreen.storyboard */; };
 		9930963421E40C50004F0799 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9930963321E40C50004F0799 /* FirstViewController.swift */; };
 		9930963621E41049004F0799 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9930963521E41049004F0799 /* Functions.swift */; };
 		9930963921E410BC004F0799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9930963821E410BC004F0799 /* User.swift */; };
-		9946EF9F21EA1B8100A24441 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946EF9E21EA1B8100A24441 /* CardDetailViewController.swift */; };
 		994C0050220980B900865536 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994C004F220980B900865536 /* DetailCell.swift */; };
 		995A59AB2206DE8200D4C295 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995A59AA2206DE8200D4C295 /* CategoryCell.swift */; };
-		995A59AD2206DF6700D4C295 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995A59AC2206DF6700D4C295 /* CategoriesController.swift */; };
 		995A59AF220712B500D4C295 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995A59AE220712B500D4C295 /* CustomFlowLayout.swift */; };
 		99657C5821B51FED007454BA /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99657C5721B51FED007454BA /* OnboardingPageViewController.swift */; };
 		99657C5A21B5330C007454BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99657C5921B5330C007454BA /* Constants.swift */; };
 		99657C5C21B53B64007454BA /* SearchCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99657C5B21B53B64007454BA /* SearchCardCell.swift */; };
 		997A940A2208DA8B004024AC /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997A94092208DA8B004024AC /* Notifications.swift */; };
+		998243EE2258E3CB002E66C6 /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998243ED2258E3CB002E66C6 /* CardsTableViewController.swift */; };
 		99A600BD21E69DFF00321CA7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A600BC21E69DFF00321CA7 /* Extension.swift */; };
 		99C6BB7421B031FD00C0E40A /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99C6BB6121B031FC00C0E40A /* Montserrat-BlackItalic.ttf */; };
 		99C6BB7521B031FD00C0E40A /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99C6BB6221B031FC00C0E40A /* Montserrat-Medium.ttf */; };
@@ -64,20 +59,17 @@
 		99C6BB9E21B0369F00C0E40A /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C6BB9421B0369F00C0E40A /* UIViewXRadialGradient.swift */; };
 		99C6BB9F21B0369F00C0E40A /* UIVisualEffectViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C6BB9521B0369F00C0E40A /* UIVisualEffectViewX.swift */; };
 		99F2039021E3B90B000B6B4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99F2038F21E3B90B000B6B4E /* GoogleService-Info.plist */; };
+		99F234592258C99E0045FB1B /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F234582258C99E0045FB1B /* DemoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		99186DC121E2CA01001FB026 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		991A2E4F21B2D5C400505082 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		991A2E5121B2E48E00505082 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		991A2E5521B3072700505082 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		99299C0F21B2A26D007A2017 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 		99299C1221B2A589007A2017 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		99299C1421B2A5E8007A2017 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		99299C1621B2BE28007A2017 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		992BC3C121B02E73007C43F3 /* Business Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		992BC3C421B02E73007C43F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		992BC3C621B02E73007C43F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		992BC3C921B02E73007C43F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		992BC3CB21B02E75007C43F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		992BC3CE21B02E75007C43F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,15 +77,14 @@
 		9930963321E40C50004F0799 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		9930963521E41049004F0799 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		9930963821E410BC004F0799 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		9946EF9E21EA1B8100A24441 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		994C004F220980B900865536 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		995A59AA2206DE8200D4C295 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
-		995A59AC2206DF6700D4C295 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		995A59AE220712B500D4C295 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 		99657C5721B51FED007454BA /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		99657C5921B5330C007454BA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99657C5B21B53B64007454BA /* SearchCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardCell.swift; sourceTree = "<group>"; };
 		997A94092208DA8B004024AC /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		998243ED2258E3CB002E66C6 /* CardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
 		99A600BC21E69DFF00321CA7 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		99C6BB6121B031FC00C0E40A /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		99C6BB6221B031FC00C0E40A /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -125,6 +116,7 @@
 		99C6BB9421B0369F00C0E40A /* UIViewXRadialGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXRadialGradient.swift; sourceTree = "<group>"; };
 		99C6BB9521B0369F00C0E40A /* UIVisualEffectViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewX.swift; sourceTree = "<group>"; };
 		99F2038F21E3B90B000B6B4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99F234582258C99E0045FB1B /* DemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		B5409A52452FCEB7E086EA6C /* Pods-Business Card.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business Card.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business Card/Pods-Business Card.debug.xcconfig"; sourceTree = "<group>"; };
 		C3C61F0954DDF7FCF90B7F96 /* Pods-Business Card.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business Card.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business Card/Pods-Business Card.release.xcconfig"; sourceTree = "<group>"; };
 		D0E1430FC1507F3655722378 /* Pods_Business_Card.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Business_Card.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,16 +154,12 @@
 		99186DC021E2C367001FB026 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				991A2E5121B2E48E00505082 /* CameraViewController.swift */,
-				9946EF9E21EA1B8100A24441 /* CardDetailViewController.swift */,
+				998243ED2258E3CB002E66C6 /* CardsTableViewController.swift */,
 				99299C1221B2A589007A2017 /* CardsViewController.swift */,
-				995A59AC2206DF6700D4C295 /* CategoriesController.swift */,
 				9930963321E40C50004F0799 /* FirstViewController.swift */,
 				99186DC121E2CA01001FB026 /* LoginViewController.swift */,
 				99299C1421B2A5E8007A2017 /* MenuViewController.swift */,
 				99657C5721B51FED007454BA /* OnboardingPageViewController.swift */,
-				991A2E4F21B2D5C400505082 /* TabBarViewController.swift */,
-				992BC3C621B02E73007C43F3 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,8 +167,8 @@
 		991A2E5721B3090200505082 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				991A2E5521B3072700505082 /* CardCollectionViewCell.swift */,
 				995A59AA2206DE8200D4C295 /* CategoryCell.swift */,
+				99F234582258C99E0045FB1B /* DemoCell.swift */,
 				994C004F220980B900865536 /* DetailCell.swift */,
 				99299C1621B2BE28007A2017 /* MenuTableViewCell.swift */,
 				99657C5B21B53B64007454BA /* SearchCardCell.swift */,
@@ -431,24 +419,21 @@
 				9930963921E410BC004F0799 /* User.swift in Sources */,
 				99C6BB9621B0369F00C0E40A /* UIViewAnchorPoint.swift in Sources */,
 				99299C1521B2A5E8007A2017 /* MenuViewController.swift in Sources */,
-				995A59AD2206DF6700D4C295 /* CategoriesController.swift in Sources */,
+				99F234592258C99E0045FB1B /* DemoCell.swift in Sources */,
 				99C6BB9B21B0369F00C0E40A /* UIViewX.swift in Sources */,
 				9930963421E40C50004F0799 /* FirstViewController.swift in Sources */,
 				99186DC221E2CA01001FB026 /* LoginViewController.swift in Sources */,
+				998243EE2258E3CB002E66C6 /* CardsTableViewController.swift in Sources */,
 				995A59AF220712B500D4C295 /* CustomFlowLayout.swift in Sources */,
 				997A940A2208DA8B004024AC /* Notifications.swift in Sources */,
 				99C6BB9F21B0369F00C0E40A /* UIVisualEffectViewX.swift in Sources */,
 				99C6BB9821B0369F00C0E40A /* UIImageViewX.swift in Sources */,
 				99C6BB9A21B0369F00C0E40A /* UIViewControllerX.swift in Sources */,
-				991A2E5621B3072700505082 /* CardCollectionViewCell.swift in Sources */,
-				992BC3C721B02E73007C43F3 /* ViewController.swift in Sources */,
 				99C6BB9C21B0369F00C0E40A /* UIButtonX.swift in Sources */,
 				99657C5C21B53B64007454BA /* SearchCardCell.swift in Sources */,
-				9946EF9F21EA1B8100A24441 /* CardDetailViewController.swift in Sources */,
 				99C6BB9921B0369F00C0E40A /* UISliderX.swift in Sources */,
 				9930963621E41049004F0799 /* Functions.swift in Sources */,
 				995A59AB2206DE8200D4C295 /* CategoryCell.swift in Sources */,
-				991A2E5021B2D5C400505082 /* TabBarViewController.swift in Sources */,
 				99657C5A21B5330C007454BA /* Constants.swift in Sources */,
 				992BC3C521B02E73007C43F3 /* AppDelegate.swift in Sources */,
 				994C0050220980B900865536 /* DetailCell.swift in Sources */,
@@ -460,7 +445,6 @@
 				99C6BB9D21B0369F00C0E40A /* UITextFieldX.swift in Sources */,
 				99C6BB9721B0369F00C0E40A /* UILabelX.swift in Sources */,
 				99299C1321B2A589007A2017 /* CardsViewController.swift in Sources */,
-				991A2E5221B2E48E00505082 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,7 +600,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arsalan.BusinessCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -639,9 +622,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arsalan.BusinessCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

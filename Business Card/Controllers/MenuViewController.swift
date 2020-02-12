@@ -19,17 +19,11 @@ class MenuViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    struct MenuItem {
-        var image: UIImage?
-        var title: String?
-    }
-
-    let menuItems: [MenuItem] = [
-        //                                MenuItem(image: #imageLiteral(resourceName: "Booking"), title: "Home"),
-        MenuItem(image: #imageLiteral(resourceName: "user"), title: "My Account"),
-        MenuItem(image: #imageLiteral(resourceName: "settings"), title: "Settings"),
-        MenuItem(image: #imageLiteral(resourceName: "life-buoy"), title: "Support"),
-        MenuItem(image: #imageLiteral(resourceName: "star"), title: "Rate the app")
+    let menuItems: [(image: UIImage, title: String)] = [
+        (image: #imageLiteral(resourceName: "user"), title: "My Account"),
+        (image: #imageLiteral(resourceName: "settings"), title: "Settings"),
+        (image: #imageLiteral(resourceName: "life-buoy"), title: "Support"),
+        (image: #imageLiteral(resourceName: "star"), title: "Rate the app")
     ]
 
     override func viewDidLoad() {

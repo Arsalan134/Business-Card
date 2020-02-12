@@ -6,28 +6,26 @@ target 'Business Card' do
   use_frameworks!
 
   # Pods for Business Card
+
   #  pod 'LGSideMenuController'
   pod 'WeScan'
 
   #    Firebase
+  pod 'Firebase'
   pod 'Firebase/Auth'
-  pod 'Firebase/Core'
   pod 'Firebase/Firestore'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Database'
-  pod 'Firebase/Storage'
   pod 'FirebaseUI/Storage'
+  pod 'CodableFirebase'
+
+  #    Text Recognition
+  pod 'TesseractOCRiOS'
 
   #    Facebook
   pod 'FBSDKLoginKit'
 
   pod 'IQKeyboardManager'
-  pod 'CodableFirebase'
   pod 'Nuke'
-
-  #    Text Recognition
-  pod 'TesseractOCRiOS'
-
-  #    pod 'SwiftyJSON'
+  pod 'FoldingCell'
+  pod 'JGProgressHUD'
 
 end
